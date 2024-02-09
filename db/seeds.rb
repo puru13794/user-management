@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+500.times do |x|
+  User.create!(
+    first_name: "user - #{x}",
+    last_name: "reddy",
+    role: 1
+  )
+end

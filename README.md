@@ -17,4 +17,7 @@ Make sure you have the following installed on your system:
    git clone git@github.com:puru13794/user-management.git
 
    bundle install
+
+   rails db:seed #to view pagination in action
+
 	```
