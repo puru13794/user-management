@@ -1,24 +1,20 @@
-# README
+# Repository Name
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+To get a local copy up and running follow these simple steps.
 
-* Ruby version
+### Prerequisites
 
-* System dependencies
+Make sure you have the following installed on your system:
+- Ruby
+- Bundler
 
-* Configuration
+### Installation
 
-* Database creation
+1. Clone the repo
+   ```sh
+   git clone git@github.com:puru13794/user-management.git
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+   bundle install
+	```
