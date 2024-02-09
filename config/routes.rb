@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get ':id/destroy', to: 'users#destroy', as: :custom_destroy_user
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

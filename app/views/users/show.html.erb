@@ -1,15 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-<% if @user.image.attached? %>
-  <%= image_tag @user.image %>
-<% end %>
 
 
-<%= render @user %>
+<div class="container">
+  
+<h1>User Details</h1>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
+  <% if @user.image.attached? %>
+    <%= image_tag(@user.image, :size =>'400x200') %>
+  <% end %>
+  <dl class="row">
+    <dt class="col-sm-3">First Name:</dt>
+    <dd class="col-sm-9"><%= @user.first_name %></dd>
+    
+    <dt class="col-sm-3">Last Name:</dt>
+    <dd class="col-sm-9"><%= @user.last_name %></dd>
+    
+    <dt class="col-sm-3">Role:</dt>
+    <dd class="col-sm-9"><%= @user.role.humanize %></dd>
+  </dl>
+  <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-primary' %>
+  <%= link_to 'Back', users_path, class: 'btn btn-secondary' %>
 </div>
+

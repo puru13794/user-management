@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
+  include Pagy::Backend
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
   def index
     @users = User.all
+    if params[:role].present?
+      @users = @users.where(role: params[:role])
+    end
+
+    @pagy, @users = pagy(@users)
   end
 
   # GET /users/1 or /users/1.json

@@ -1,10 +1,5 @@
-<h1>Editing user</h1>
-
-<%= render "form", user: @user %>
-
-<br>
-
-<div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
+<div class="container">
+  <h1><%= @user.new_record? ? 'New User' : 'Edit User' %></h1>
+  <%= render 'form' %>
+  <%= link_to 'Back', users_path, class: 'btn btn-secondary' %>
 </div>

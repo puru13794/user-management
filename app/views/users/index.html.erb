@@ -1,14 +1,34 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Users</h1>
-
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
+<div class="container">
+  <h1>All Users</h1>
+  <%= form_with(url: users_path, method: "get") do %>
+    <%= select_tag(:role, options_for_select([["All", 'all']] + User.roles.to_a, params[:role]), onchange: 'this.form.submit();') %>
   <% end %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.role.humanize %></td>
+          <td>
+            <%= link_to 'Show', user, class: 'btn btn-primary btn-sm' %>
+            <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-secondary btn-sm' %>
+            <%= link_to 'Destroy', custom_destroy_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'New User', new_user_path, class: 'btn btn-success' %>
+  <div class="pag-bar mt-5 pt-5">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
 </div>
-
-<%= link_to "New user", new_user_path %>
